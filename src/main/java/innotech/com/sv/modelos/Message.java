@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -37,12 +38,12 @@ public class Message implements Serializable{
 		this.fecha_creacion = new Date();
 	}
 	
-	@NotBlank(message = "No se puede dejar vacio destinatario")
+	@NotNull(message = "No se puede dejar vacio destinatario")
 	private String para1;
 	
 	private String para2;
 	
-	@NotBlank(message = "No se puede dejar vacio el mensaje")
+	@NotNull(message = "No se puede dejar vacio el mensaje")
 	private String mensaje;
 
 	public long getId() {
