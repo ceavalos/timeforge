@@ -32,8 +32,7 @@
 			<div class="card-body">
 				<h5 class="card-title">UI INTERFACE</h5>
 
-				<form th:action="@{/mensaje/form}" th:object="${messagee}"
-					method="post">
+				<form th:action="@{/mensaje/form}" th:object="${messagee}"	method="post">
 
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Telefono 1</label>
@@ -58,8 +57,6 @@
 						</div>
 					</div>
 
-
-
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Mensaje</label>
 						<div class="col-sm-6">
@@ -75,9 +72,6 @@
 						<input type="submit" class="btn btn-primary m-2" value="Submit" />						
 						<a href="/" class="btn btn-danger m-2" role="button" >Cancelar</a>
 					</div>
-
-
-
 
 				</form>
 

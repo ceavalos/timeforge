@@ -40,9 +40,8 @@ public class MensajesController {
 		modelo.addAttribute("messagee", message);
 		modelo.addAttribute("titulo", "Envio de mensajes!.");
 		//
-		return "mensaje";
-	}
-	
+		return "form";
+	}	
 	
 	@RequestMapping(value = "/listar")
 	public String listar(@RequestParam(name = "page", defaultValue = "0") int page, Model modelo, 
@@ -50,7 +49,7 @@ public class MensajesController {
 		
 		List<Message> mensaje = servicioMensaje.findAll();
 	      	      
-		modelo.addAttribute("titulo", "Listado de Mensajes a enviar");
+		modelo.addAttribute("titulo", "Listado de Mensajes enviados");
 		modelo.addAttribute("datos", mensaje);
 		
 		return "listar";
@@ -64,10 +63,9 @@ public class MensajesController {
 		System.out.println("En controlador forma =" + result.hasErrors());
 		//
 		if (result.hasErrors()) {
-			System.out.println("con errores al momento de enviar mensaje");
-			model.addAttribute("titulo", "Formulario de Envio Mensajes");
-			flash.addFlashAttribute("success", "Error al intentar enviar mensaje. No deje vacios Telefono y Mensaje");
-			return "mensaje";
+			//System.out.println("con errores al momento de enviar mensaje");
+			model.addAttribute("titulo", "<<Error>> Debe llenar destinatario y mensaje a enviar");			
+			return "form";
 		}
 		
 		servicioMensaje.save(message);
