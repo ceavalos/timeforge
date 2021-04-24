@@ -8,13 +8,30 @@
 <body>
 
 	<div class="container py-2">
-
+      
+         <div th:object="${messagee}" th:remove="tag">
+				<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+					<li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
+				</ul>
+			</div>
+			 
+			
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}"></div>
+		<div class="alert alert-danger" th:if="${error != null}"
+			th:text="${error}"></div>
+		<div class="alert alert-warning" th:if="${warning != null}"
+			th:text="${warning}"></div>
+		<div class="alert alert-info" th:if="${info != null}"
+			th:text="${info}"></div>
+			
+				
 		<div class="card text-dark bg-light mb-3">
 			<div class="card-header">TIMEFORGE MESSAJES</div>
 			<div class="card-body">
 				<h5 class="card-title">UI INTERFACE</h5>
 
-				<form th:action="@{/form}" th:object="${messagee}" method="post">
+				<form th:action="@{/mensaje/form}" th:object="${messagee}" method="post">
 
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Telefono 1</label>
