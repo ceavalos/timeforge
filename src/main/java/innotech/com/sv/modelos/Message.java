@@ -38,12 +38,12 @@ public class Message implements Serializable{
 		this.fecha_creacion = new Date();
 	}
 	
-	@NotNull(message = "No se puede dejar vacio destinatario")
+	@NotBlank(message = "No se puede dejar vacio destinatario")
 	private String para1;
 	
 	private String para2;
 	
-	@NotNull(message = "No se puede dejar vacio el mensaje")
+	@NotBlank(message = "No se puede dejar vacio el mensaje")
 	private String mensaje;
 
 	public long getId() {

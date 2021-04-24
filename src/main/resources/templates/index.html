@@ -10,12 +10,26 @@
 	
 	<div class="container py-2">
      
+   
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}"></div>
+		<div class="alert alert-danger" th:if="${error != null}"
+			th:text="${error}"></div>
+		<div class="alert alert-warning" th:if="${warning != null}"
+			th:text="${warning}"></div>
+		<div class="alert alert-info" th:if="${info != null}"
+			th:text="${info}"></div>
+ 
          
 		<div class="card-body">
 			<div class="card-title">
 				<h1>Envio de mensajes</h1>
 			</div>
-			<div class="card-text">Aplciacion para envio de mensajes.</div>
+			<div class="card-text">
+			 <a href="http://localhost:8090/mensaje/envio" > Ir a envio de mensajes. </a> <br>
+			 <a href="http://localhost:8090/mensaje/listar" > Ver Listado de mensajes. </a>			
+			
+			</div>
 		</div>
 
 	</div>
