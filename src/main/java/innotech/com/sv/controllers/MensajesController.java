@@ -59,7 +59,7 @@ public class MensajesController {
 		//
 		if (result.hasErrors()) {
 			//System.out.println("con errores al momento de enviar mensaje");
-			model.addAttribute("titulo", "<<Error>> Debe llenar destinatario y mensaje a enviar");			
+			model.addAttribute("error", "<<Error>> Debe llenar destinatario y mensaje a enviar");			
 			return "form";
 		}
 		
