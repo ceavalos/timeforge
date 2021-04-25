@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.bind.annotation.RequestParam;  
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 import innotech.com.sv.modelos.Message;
 import innotech.com.sv.service.IMessage;
@@ -52,14 +54,14 @@ public class MensajesController {
 	
 	
 	@RequestMapping(value = "/form", method = RequestMethod.POST)
-	public String forma(@Valid Message message, BindingResult result, Model model,			             
+	public String forma(@Valid @ModelAttribute(value="messagee") Message message, BindingResult result, Model model,			             
 			            SessionStatus status, RedirectAttributes flash) {
 		//
 		System.out.println("En controlador forma =" + result.hasErrors());
 		//
 		if (result.hasErrors()) {
 			//System.out.println("con errores al momento de enviar mensaje");
-			model.addAttribute("error", "<<Error>> Debe llenar destinatario y mensaje a enviar");			
+			//model.addAttribute("error", "<<Error>> Debe llenar destinatario y mensaje a enviar");			
 			return "form";
 		}
 		
