@@ -1,64 +1,72 @@
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8" />
-<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
-<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
-</head>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
 <body>
 
-	<div class="container py-2">
+	<header th:replace="layout/layout :: header"> </header>
 
+	<div class="container-fluid  py-4">
+	 	
+	<div class="card bg-light">
 
-		<div class="alert alert-success" th:if="${success != null}"
-			th:text="${success}"></div>
-		<div class="alert alert-danger" th:if="${error != null}"
-			th:text="${error}"></div>
-		<div class="alert alert-warning" th:if="${warning != null}"
-			th:text="${warning}"></div>
-		<div class="alert alert-info" th:if="${info != null}"
-			th:text="${info}"></div>
+			<h1
+				class="text-secondary border border-success border-top-0 border-left-0 border-right-0"
+				th:text="${titulo}"></h1>
 
-		<div class="card text-dark bg-light mb-3">
-			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
-				<h5 class="card-title">UI INTERFACE</h5>
-				<div class="form-group row">
-						<a href="/" class="btn btn-danger m-2" role="button" >Regresar</a>
-					</div>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>id</th>
-							<th>Telefono1</th>
-							<th>Telefono2</th>
-							<th>Mensaje</th>														
-						</tr>
-					</thead>
-					<tbody>					
-						<tr th:each="data: ${datos}">
-						 	<td th:text="${data.id}"></td>
-							<td th:text="${data.para1}"></td>							
-							<td th:text="${data.para2}"></td>
-							<td th:text="${data.mensaje}"></td>							
-						</tr> 
-					</tbody>
 
-				</table>
+				<div class="container py-2">
+
+
+					<div class="alert alert-success" th:if="${success != null}"
+						th:text="${success}"></div>
+					<div class="alert alert-danger" th:if="${error != null}"
+						th:text="${error}"></div>
+					<div class="alert alert-warning" th:if="${warning != null}"
+						th:text="${warning}"></div>
+					<div class="alert alert-info" th:if="${info != null}"
+						th:text="${info}"></div>
+
+					<div class="card text-dark bg-light mb-3">
+						<div class="card-header" th:text="${titulo}"></div>
+						<div class="card-body">
+							<h5 class="card-title">UI INTERFACE</h5>
+							<div class="form-group row">
+								<a href="/" class="btn btn-danger m-2" role="button">Regresar</a>
+							</div>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>Telefono1</th>
+										<th>Telefono2</th>
+										<th>Mensaje</th>										
+									</tr>
+								</thead>
+								<tbody>
+									    <tr th:each="data: ${datos}">
+									    <td> <a class= "btn btn-primary btn-xs" th:href="@{/mensaje/ver/} + ${data.id}" th:text="${data.id}"> </a></td>
+										<td th:text="${data.para1}"></td>
+										<td th:text="${data.para2}"></td>
+										<td th:text="${data.mensaje}"></td>
+									</tr>
+								</tbody>
+
+							</table>
+
+						</div>
+					</div>
+
+						<nav th:replace="layout/paginator-nav :: paginator"></nav>
+				</div>				
 				
 			</div>
-		</div>
-
+		</div> 
 	</div>
-
 
 </body>
 
-<footer>
-	<script th:src="@{/js/jquery-ui.js}"></script>
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-	<script th:src="@{/js/popper.min.js}"></script>
-	<script th:src="@{/js/sweetalert2.10.js}"></script>
-</footer>
+
 </html>
+

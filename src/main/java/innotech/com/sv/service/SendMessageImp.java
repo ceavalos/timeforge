@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import innotech.com.sv.modelos.Mensaje;
 import innotech.com.sv.modelos.SendMessage;
 import innotech.com.sv.modelosDao.SendMessageDao;
 
@@ -50,6 +51,12 @@ public class SendMessageImp implements ISendMessage {
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		sendMessageDao.deleteById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public SendMessage findByMensage(Mensaje message) {
+		return sendMessageDao.findByMessage(message);
 	}
 
 }

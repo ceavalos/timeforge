@@ -6,17 +6,17 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 
-import innotech.com.sv.modelos.Message;
+import innotech.com.sv.modelos.Mensaje;
 
 public interface IMessage {
 	
-	public List<Message> findAll();
+	public List<Mensaje> findAll();
 
-	public Page<Message> findAll(Pageable pageable);
+	public Page<Mensaje> findAll(Pageable pageable);
 
-	public Message findById(Long id);
+	public Mensaje findById(Long id);
 
-	public Message save(Message message);
+	public Mensaje save(Mensaje message);
 
 	public void delete(Long id);
 }

@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import innotech.com.sv.modelos.Message;
+import innotech.com.sv.modelos.Mensaje;
 import innotech.com.sv.modelosDao.MessageDao;
 
 @Service
@@ -19,28 +19,28 @@ public class MessageImp implements IMessage {
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Message> findAll() {
+	public List<Mensaje> findAll() {
 		// TODO Auto-generated method stub
-		return (List<Message>) messageDao.findAll();
+		return (List<Mensaje>) messageDao.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Page<Message> findAll(Pageable pageable) {
+	public Page<Mensaje> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return messageDao.findAll(pageable);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Message findById(Long id) {
+	public Mensaje findById(Long id) {
 		// TODO Auto-generated method stub
 		return messageDao.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional(readOnly = false)
-	public Message save(Message message) {
+	public Mensaje save(Mensaje message) {
 		// TODO Auto-generated method stub
 		return messageDao.save(message);
 	}

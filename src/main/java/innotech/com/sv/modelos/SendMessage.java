@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,7 +30,7 @@ public class SendMessage implements Serializable{
 	private long id;
 	
 	@ManyToOne
-	private Message message;
+	private Mensaje message;
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
@@ -48,11 +47,11 @@ public class SendMessage implements Serializable{
 		this.id = id;
 	}
 
-	public Message getMessage() {
+	public Mensaje getMessage() {
 		return message;
 	}
 
-	public void setMessage(Message message) {
+	public void setMessage(Mensaje message) {
 		this.message = message;
 	}
 
